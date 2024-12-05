@@ -37,7 +37,7 @@ public class SignUtil {
             }
         }
         //将加密后的字符串与signature进行对比
-        return checktext !=null ? checktext.equals(signature.toUpperCase()) : false;
+        return checktext != null && checktext.equals(signature.toUpperCase());
     }
 
     /**
@@ -63,7 +63,6 @@ public class SignUtil {
         char[] tampArr = new char[2];
         tampArr[0] = Digit[(myByte >>> 4) & 0X0F];
         tampArr[1] = Digit[myByte & 0X0F];
-        String str = new String(tampArr);
-        return str;
+        return new String(tampArr);
     }
 }
